@@ -190,6 +190,8 @@ body {
     justify-content: space-between;
     padding: 0 10px;
     pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .arrow {
@@ -250,23 +252,25 @@ body {
     margin-top: 3px;
 }
 
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .timer {
     font-size: 32px;
     font-weight: 800;
-    display: inline-block;
-    vertical-align: middle;
     letter-spacing: -0.5px;
 }
 
 .code {
-    float: right;
     background: rgba(255, 255, 255, 0.22);
     padding: 6px 14px;
     border-radius: 8px;
     font-weight: 700;
     font-size: 15px;
     letter-spacing: 0.5px;
-    margin-top: 4px;
 }
 
 /* Button & Pagination */
@@ -331,7 +335,7 @@ body {
         </div>
 
         <div class="team">
-            <img src="husa.png" alt="CODM">
+            <img src="husa.png" alt="HUSA">
             <div class="team-name">HUSA</div>
         </div>
     </div>
@@ -380,7 +384,7 @@ body {
             </div>
         </div>
 
-        <div>
+        <div class="footer-row">
             <div class="timer" id="countdown"></div>
             <div class="code">F4PM</div>
         </div>
@@ -388,51 +392,4 @@ body {
 
     <button class="transfer">
         <svg viewBox="0 0 24 24" fill="none">
-            <path d="M22 2L11 13" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
-        </svg>
-        <span>Transférer le billet</span>
-    </button>
-
-    <div class="page">1/5</div>
-
-</div>
-
-<script>
-const now = new Date();
-
-document.getElementById('date').innerHTML =
-now.toLocaleDateString('fr-FR',{
-    weekday:'long',
-    day:'numeric',
-    month:'long',
-    year:'numeric'
-});
-
-let target = new Date();
-target.setHours(15,0,0,0);
-
-function countdown(){
-    let diff = target - new Date();
-
-    if(diff < 0){
-        document.getElementById('countdown').innerHTML='MATCH LIVE';
-        return;
-    }
-
-    let h = Math.floor(diff/1000/60/60);
-    let m = Math.floor(diff/1000/60)%60;
-    let s = Math.floor(diff/1000)%60;
-
-    document.getElementById('countdown').innerHTML =
-    String(h).padStart(2,'0') + ':' +
-    String(m).padStart(2,'0') + ':' +
-    String(s).padStart(2,'0');
-}
-
-setInterval(countdown,1000);
-countdown();
-</script>
-
-</body>
-</html>
+            <path d="M22 2L11 13" stroke
